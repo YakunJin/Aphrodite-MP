@@ -1,6 +1,8 @@
 <!--components/login/login.wxml-->
-<view class="container">
-  <open-data type="userAvatarUrl" class="user-avatar"></open-data>
-  <open-data type="userNickName" lang="zh_CN"></open-data>
-  <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">登陆</button>
+<view class="background">
+  <view class="container">
+    <open-data type="userAvatarUrl" class="user-avatar"></open-data>
+    <open-data type="userNickName" lang="zh_CN" class="user-nick-name"></open-data>
+    <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">登陆</button>
+  </view>
 </view>

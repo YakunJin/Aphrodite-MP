@@ -1,4 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <login></login>
+  <!-- <login></login> -->
+  <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">上传</button>
 </view>

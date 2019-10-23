@@ -1,0 +1,11 @@
+<!--miniprogram/pages/uploadProduct/uploadProduct.wxml-->
+<view class="container">
+  <view class="uploading-image-section">
+    <image class="image-container" src="{{newPhotoUrl}}" mode="aspectFit" bindtap="onSelectPhoto"></image>
+  </view>
+  <view class="product-desc-section"></view>
+  <view class="product-price-section"></view>
+  <view class="upload-product-button" bindtap="doUpload">
+    <text>Start</text>
+  </view>
+</view>

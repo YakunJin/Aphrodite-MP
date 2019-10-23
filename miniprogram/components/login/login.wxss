@@ -1,26 +1,41 @@
 /* components/login/login.wxss */
 
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.background {
   position: absolute;
   width: 100%;
   height: 100%;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: lightgrey;
   cursor: pointer;
   z-Index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: black; 
+  justify-content: center;
+  width: 90%;
+  height: 900rpx;
+  background-color: white;
 }
 
 .user-avatar {
-  width: 500rpx;
-  height: 500rpx;
+  width: 400rpx;
+  height: 400rpx;
 }
 
 .login-button {
   width: 200rpx;
   height: 100rpx;
   background-color: green;
+}
+
+.user-nick-name{
+  font-size: 50rpx;
 }
