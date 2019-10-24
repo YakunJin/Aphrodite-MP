@@ -1,5 +1,11 @@
 <!--index.wxml-->
 <view class="container">
+  <scroll-view scroll-y class="products-section">
+    <view wx:for="{{products}}">
+      <product-item image-url="{{item.image_path}}" description="{{item.desc}}" price="{{item.price}}">
+      </product-item>
+    </view>
+  </scroll-view>
   <!-- <login></login> -->
   <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">上传</button>
 </view>

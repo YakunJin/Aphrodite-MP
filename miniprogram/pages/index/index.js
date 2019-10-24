@@ -7,10 +7,14 @@ Page({
     userInfo: {},
     logged: false,
     takeSession: false,
-    requestResult: ''
+    requestResult: '',
+    products: []
   },
 
   onLoad: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -52,10 +56,40 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
+        this.loadProducts()
       },
       fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '登陆失败',
+        });
+        wx.hideLoading();
         console.error('[云函数] [login] 调用失败', err)
       }
     })
   },
+
+  loadProducts: function(openId) {
+    wx.cloud.callFunction({
+      name: 'getProductsInfo',
+      data: {
+        openId: openId
+      },
+      success: res => {
+        this.setData({
+          products: res.result.data || []
+        })
+        wx.hideLoading();
+        console.log(res.result.data)
+      },
+      fail: error => {
+        wx.showToast({
+          icon: 'none',
+          title: '加载图片失败',
+        });
+        wx.hideLoading();
+        console.error
+      }
+    })
+  }
 })

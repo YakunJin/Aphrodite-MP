@@ -2,7 +2,7 @@
 .bidder-product-container {
   display: flex;
   flex-direction: column;
-  border-top: 1rpx solid lightgray;
+  /* border-top: 1rpx solid lightgray; */
   border-bottom: 1rpx solid lightgray;
   margin-bottom: 10rpx;
 }
@@ -20,4 +20,8 @@
   font-style: italic;
   font-family: Arial, sans-serif;
   color: lightslategray;
+}
+.uploader-image {
+  width: 100%;
+  background-color: whitesmoke;
 }

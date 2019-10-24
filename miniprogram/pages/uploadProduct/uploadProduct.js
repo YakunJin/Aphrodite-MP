@@ -1,4 +1,6 @@
 // miniprogram/pages/uploadProduct/uploadProduct.js
+const app = getApp()
+
 Page({
 
   /**
@@ -89,13 +91,13 @@ Page({
     const filePath = this.data.newPhotoUrl;
     let timeStamp = Date.parse(new Date());
     // 上传图片
-    const cloudPath = 'new-product-' + timeStamp + '-' + app.globalData.openId
+    const cloudPath = 'new-product-' + timeStamp + '-' + app.globalData.openid
     wx.cloud.uploadFile({
       cloudPath,
       filePath,
       success: res => {
         console.log('[上传文件] 成功：', res)
-        this.savePhotoInfo(app.globalData.openId, res.fileID, filePath)
+        this.savePhotoInfo(app.globalData.openid, res.fileID, filePath)
         wx.hideLoading();
       },
       fail: e => {
@@ -114,7 +116,7 @@ Page({
     console.log("photoId ", photoId);
     console.log("photoPath ", photoPath);
     wx.cloud.callFunction({
-      name: 'savePhotoInfo',
+      name: 'saveProductInfo',
       data: {
         openId: openId,
         imageId: photoId,
