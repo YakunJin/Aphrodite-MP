@@ -130,6 +130,9 @@ Page({
       },
       success: res => {
         console.log('Save photo info for user ', openId)
+        wx.redirectTo({
+          url: '../index/index',
+        })
       },
       fail: console.error
     })
