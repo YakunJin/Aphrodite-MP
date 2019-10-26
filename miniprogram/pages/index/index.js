@@ -91,5 +91,11 @@ Page({
         console.error
       }
     })
+  },
+  onTapProduct: function(e){
+    console.log('onTapProduct ',e)
+    wx.navigateTo({
+      url: `../productDetail/productDetail?productId=${e.detail.productId}`
+    })
   }
 })

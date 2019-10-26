@@ -4,6 +4,9 @@ Component({
    * Component properties
    */
   properties: {
+    productId: {
+      type: String
+    },
     imageUrl: {
       type: String
     },
@@ -12,7 +15,7 @@ Component({
     },
     price: {
       type: Number
-    }
+    },
   },
 
   /**
@@ -27,9 +30,7 @@ Component({
    */
   methods: {
     previewImg: function() {
-      wx.previewImage({
-        urls: [this.data.imageUrl],
-      })
+      this.triggerEvent('tapProductEvent', {productId: this.data.productId})
     }
   }
 })

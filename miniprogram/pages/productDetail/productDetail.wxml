@@ -1,0 +1,12 @@
+<!--miniprogram/pages/productDetail/productDetail.wxml-->
+<view class="container">
+  <view class="product-detail-container">
+    <image class="product-image" src="{{productInfo.image_path}}" mode="aspectFit"></image>
+    <text class="product-desc">{{productInfo.desc}}</text>
+  </view>
+  <view class="action-bar">
+    <button open-type="share">分享好友</button>
+    <label class="split-line">|</label>
+    <button>生成海报</button>
+  </view>
+</view>

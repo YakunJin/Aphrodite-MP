@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/uploadProduct/uploadProduct"
+    "pages/uploadProduct/uploadProduct",
+    "pages/productDetail/productDetail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
