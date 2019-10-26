@@ -1,7 +1,7 @@
 <!--miniprogram/pages/productDetail/productDetail.wxml-->
 <view class="container">
   <view class="product-detail-container">
-    <image class="product-image" src="{{productInfo.image_path}}" mode="aspectFit"></image>
+    <image class="product-image" src="{{productInfo.image_id}}" mode="aspectFit"></image>
     <text class="product-desc">{{productInfo.desc}}</text>
   </view>
   <view class="action-bar">
