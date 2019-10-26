@@ -1,15 +1,15 @@
 <!--miniprogram/pages/uploadProduct/uploadProduct.wxml-->
 <view class="container">
-  <view class="uploading-image-section">
+  <view class="product-info-container">
+    <view class="uploading-image-section">
     <image class="image-container" src="{{newPhotoUrl}}" mode="aspectFit" bindtap="onSelectPhoto"></image>
   </view>
-  <view class="product-info-section">
-   <label>描述</label>
-    <input class="input-field" placeholder="描述信息"></input>
-  </view>
-  <view class="product-info-section">
-    <label>价格</label>
-    <input class="input-field" placeholder="价格"></input>
+    <view class="product-info-section">
+      <input class="input-field" type="text" confirm-type="done" bindinput="onDescInput" placeholder="描述信息"></input>
+    </view>
+    <view class="product-info-section">
+      <input class="input-field" type="number" confirm-type="done" bindinput="onPriceInput" placeholder="价格"></input>
+    </view>
   </view>
   <view class="upload-product-button" bindtap="doUpload">
     <text>Start</text>

@@ -6,7 +6,7 @@ const db = cloud.database()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  return await db.collection('Products').where({
+  return await db.collection('Products').orderBy('created_at', "desc").where({
     _openid: event.openId
   }).get()
 }

@@ -18,8 +18,9 @@
   font-size: 35rpx;
   font-weight: lighter;
   font-style: italic;
-  font-family: Arial, sans-serif;
-  color: lightslategray;
+  /* font-family: Arial, sans-serif; */
+  /* color: darkgrey; */
+  color: rgb(15, 19, 19);
 }
 .uploader-image {
   width: 100%;
