@@ -26,6 +26,10 @@ Component({
    * Component methods
    */
   methods: {
-
+    previewImg: function() {
+      wx.previewImage({
+        urls: [this.data.imageUrl],
+      })
+    }
   }
 })

@@ -21,8 +21,14 @@
   /* font-family: Arial, sans-serif; */
   /* color: darkgrey; */
   color: rgb(15, 19, 19);
+  width: 80%;
+  margin-left: 5%;
 }
 .uploader-image {
-  width: 100%;
+  width: 600rpx;
+  height: 600rpx;
   background-color: whitesmoke;
+  margin-top: 20rpx;
+  margin-left: 5%;
+  /* width: 60%; */
 }
