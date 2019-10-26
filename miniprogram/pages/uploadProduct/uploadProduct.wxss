@@ -23,3 +23,10 @@ page {
   align-items: center;
   justify-content: center;
 }
+
+.product-info-section{
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+}
