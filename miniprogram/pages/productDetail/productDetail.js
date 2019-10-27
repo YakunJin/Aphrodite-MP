@@ -106,7 +106,7 @@ Page({
     const userInfo = e.detail.userInfo
     // this.getImageInfo(this.data.productInfo.image_id)
     let getProductImagePromise = this.getImageInfoPromise(this.data.productInfo.image_id)
-    let getBackgroundImagePromise = this.getImageInfoPromise('cloud://dev-pehzq.6465-dev-pehzq-1300404245/src/post-background.jpg')
+    let getBackgroundImagePromise = this.getImageInfoPromise('cloud://dev-pehzq.6465-dev-pehzq-1300404245/src/back-ground.jpg')
     let getAvatarUrlPromise = this.getImageInfoPromise(userInfo.avatarUrl)
     // let getAvatarPromise = this.getImageInfoPromise(userInfo.avatarUrl)
     Promise.all([getProductImagePromise, getBackgroundImagePromise, getAvatarUrlPromise]).then(res => {
