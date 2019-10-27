@@ -41,6 +41,7 @@ page {
   text-align: left;
   /* height: 5%; */
   width: 90%;
+  height: 20%;
 }
 
 .input-field {
