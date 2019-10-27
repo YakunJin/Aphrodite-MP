@@ -114,7 +114,6 @@ Page({
       const avatarWidth = avatarHeight
       canvasHeight = res[0].imageHeight + avatarHeight
       _this.drawImage(res[1].imagePath, 0, 0, canvasWidth, canvasHeight)
-      console.log('=====> ', userInfo)
       _this.drawImage(userInfo.avatarUrl, 0, 0, avatarWidth, avatarHeight)
       const fontSize = avatarHeight / 3
       canvas.setFontSize(fontSize)
