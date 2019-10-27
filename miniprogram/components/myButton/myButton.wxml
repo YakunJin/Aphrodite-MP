@@ -1,0 +1,6 @@
+<!--components/myButton/myButton.wxml-->
+<view class='button-container'>
+  <image class="button-image" src='{{iconUrl}}' mode='aspectFit'></image>
+  <button wx:if="{{!needGetUserInfo}}" class="button" plain='true' bindtap='onClick'></button>
+  <button wx:if='{{needGetUserInfo}}' class="button" plain='true' open-type="getUserInfo" bindgetuserinfo="onClick"></button>
+</view>

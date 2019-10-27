@@ -7,11 +7,9 @@
     <view class="product-info-section">
       <input class="input-field" type="text" confirm-type="done" bindinput="onDescInput" placeholder="描述信息"></input>
     </view>
-    <!-- <view class="product-info-section">
-      <input class="input-field" type="number" confirm-type="done" bindinput="onPriceInput" placeholder="价格"></input>
-    </view> -->
   </view>
-  <view class="upload-product-button" bindtap="doUpload">
+  <!-- <view class="upload-product-button" bindtap="doUpload">
     <text>Start</text>
-  </view>
+  </view> -->
+  <my-button class="upload-product-button" icon-url="../../icons/accept256.png" bind:onClick="doUpload"></my-button>
 </view>

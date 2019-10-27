@@ -1,4 +1,6 @@
 // miniprogram/pages/productDetail/productDetail.js
+import { promisify } from 'miniprogram-api-promise';
+
 Page({
 
   /**
@@ -90,7 +92,7 @@ Page({
     return {
       title: '来看看我分享给你的款式',
       path: `/pages/productDetail/productDetail?productId=${this.data.productInfo._id}`,
-      imageUrl: this.data.productInfo.image_path
+      imageUrl: this.data.productInfo.image_id
     }
   }
 })

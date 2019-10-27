@@ -7,5 +7,6 @@
     </view>
   </scroll-view>
   <!-- <login></login> -->
-  <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">上传</button>
+  <!-- <button open-type="getUserInfo" bindgetuserinfo="onGetUserInfo" class="login-button">上传</button> -->
+  <my-button class="login-button" need-get-user-info='true' icon-url="../../icons/add_new256.png" bind:onClick="onGetUserInfo"></my-button>
 </view>
