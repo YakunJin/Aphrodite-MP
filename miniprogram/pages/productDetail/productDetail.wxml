@@ -7,6 +7,7 @@
   <view class="action-bar">
     <button open-type="share">分享好友</button>
     <label class="split-line">|</label>
-    <button>生成海报</button>
+    <button open-type="getUserInfo" bindgetuserinfo="generatePost">生成海报</button>
   </view>
+  <canvas canvas-id='canvas' class="post-canvas"></canvas>
 </view>

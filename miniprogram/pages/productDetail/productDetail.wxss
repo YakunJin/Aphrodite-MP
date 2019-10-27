@@ -39,3 +39,15 @@ page {
 .split-line {
   line-height: 80rpx;
 }
+
+.post-canvas {
+  position: absolute;
+  top: -300vw;
+  width: 300vw;
+  height: 300vw;
+  /* height: 80%;
+  width: 80%;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx; */
+}

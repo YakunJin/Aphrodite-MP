@@ -148,5 +148,5 @@ Page({
     this.setData({
       price: e.detail.value
     })
-  },
+  }
 })

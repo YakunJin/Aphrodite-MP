@@ -37,6 +37,7 @@ Page({
   onGetUserInfo: function(e) {
     console.log(`on get user info ${e}`)
     if (!this.data.logged && e.detail.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
       this.setData({
         logged: true,
         avatarUrl: e.detail.userInfo.avatarUrl,
@@ -97,5 +98,5 @@ Page({
     wx.navigateTo({
       url: `../productDetail/productDetail?productId=${e.detail.productId}`
     })
-  }
+  },
 })
