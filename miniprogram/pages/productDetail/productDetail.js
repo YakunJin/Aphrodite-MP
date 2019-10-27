@@ -107,20 +107,23 @@ Page({
     // this.getImageInfo(this.data.productInfo.image_id)
     let getProductImagePromise = this.getImageInfoPromise(this.data.productInfo.image_id)
     let getBackgroundImagePromise = this.getImageInfoPromise('cloud://dev-pehzq.6465-dev-pehzq-1300404245/src/post-background.jpg')
+    let getAvatarUrlPromise = this.getImageInfoPromise(userInfo.avatarUrl)
     // let getAvatarPromise = this.getImageInfoPromise(userInfo.avatarUrl)
-    Promise.all([getProductImagePromise, getBackgroundImagePromise]).then(res => {
+    Promise.all([getProductImagePromise, getBackgroundImagePromise, getAvatarUrlPromise]).then(res => {
       canvasWidth = res[0].imageWidth
       const avatarHeight = res[0].imageHeight / 8.5
       const avatarWidth = avatarHeight
+      const spaceBetween = avatarWidth / 2
       canvasHeight = res[0].imageHeight + avatarHeight
-      _this.drawImage(res[1].imagePath, 0, 0, canvasWidth, canvasHeight)
-      _this.drawImage(userInfo.avatarUrl, 0, 0, avatarWidth, avatarHeight)
+      _this.drawImage(res[1].imagePath, 0, 0, canvasWidth, canvasHeight) //background image
+      console.log('userInfo ',userInfo)
+      _this.drawImage(res[2].imagePath, spaceBetween , 0, avatarWidth, avatarHeight) //avatar image
       const fontSize = avatarHeight / 3
       canvas.setFontSize(fontSize)
       // canvas.font = 'normal 24px #ffffff'
       canvas.setFillStyle('#ffffff')
-      canvas.fillText(userInfo.nickName, avatarWidth, avatarHeight - fontSize)
-      _this.drawImage(res[0].imagePath, 0, avatarHeight, canvasWidth, res[0].imageHeight)
+      canvas.fillText(userInfo.nickName, avatarWidth + 2*spaceBetween, avatarHeight - fontSize)
+      _this.drawImage(res[0].imagePath, 0, avatarHeight, canvasWidth, res[0].imageHeight) // product
       canvas.draw();
       setTimeout(function() {
         _this.output()
@@ -152,6 +155,7 @@ Page({
       })
     })
   },
+
 
   // getImageInfo: function(imageUrl){
   //   const _this = this;
