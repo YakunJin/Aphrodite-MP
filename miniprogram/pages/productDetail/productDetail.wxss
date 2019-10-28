@@ -42,9 +42,9 @@ page {
 
 .post-canvas {
   position: absolute;
-  top: -300vw;
-  width: 300vw;
-  height: 300vw;
+  top: -780vw;
+  width: 360vw;
+  height: 780vw;
   /* height: 80%;
   width: 80%;
   position: absolute;

@@ -108,23 +108,33 @@ Page({
     let getProductImagePromise = this.getImageInfoPromise(this.data.productInfo.image_id)
     let getBackgroundImagePromise = this.getImageInfoPromise('cloud://dev-pehzq.6465-dev-pehzq-1300404245/src/back-ground.jpg')
     let getAvatarUrlPromise = this.getImageInfoPromise(userInfo.avatarUrl)
+    let getQRCodePromise = this.getImageInfoPromise('cloud://dev-pehzq.6465-dev-pehzq-1300404245/src/QRCode.jpg')
     // let getAvatarPromise = this.getImageInfoPromise(userInfo.avatarUrl)
-    Promise.all([getProductImagePromise, getBackgroundImagePromise, getAvatarUrlPromise]).then(res => {
+    Promise.all([getProductImagePromise, getBackgroundImagePromise, getAvatarUrlPromise, getQRCodePromise]).then(res => {
+      console.log('res ===> ', res)
       canvasWidth = res[0].imageWidth
       const avatarHeight = res[0].imageHeight / 8.5
       const avatarWidth = avatarHeight
       const spaceBetween = avatarWidth / 2
-      canvasHeight = res[0].imageHeight + avatarHeight
+      const qrCodeHeight = res[3].imageHeight
+      const qrCodeWidth = qrCodeHeight
+      canvasHeight = res[0].imageHeight + avatarHeight + qrCodeHeight
+
       _this.drawImage(res[1].imagePath, 0, 0, canvasWidth, canvasHeight) //background image
       console.log('userInfo ',userInfo)
-      _this.drawImage(res[2].imagePath, spaceBetween , 0, avatarWidth, avatarHeight) //avatar image
+      _this.drawImage(res[2].imagePath, 0 , 0, avatarWidth, avatarHeight) //avatar image
       const fontSize = avatarHeight / 3
       canvas.setFontSize(fontSize)
       // canvas.font = 'normal 24px #ffffff'
       canvas.setFillStyle('#ffffff')
-      canvas.fillText(userInfo.nickName, avatarWidth + 2*spaceBetween, avatarHeight - fontSize)
+      canvas.fillText(userInfo.nickName, avatarWidth + spaceBetween, avatarHeight - fontSize)
       _this.drawImage(res[0].imagePath, 0, avatarHeight, canvasWidth, res[0].imageHeight) // product
+      canvas.setFontSize(fontSize / 1.1)
+      canvas.setFillStyle('#ffffff')
+      canvas.fillText(this.data.productInfo.desc, 0, avatarHeight + res[0].imageHeight + qrCodeHeight/3)
+      _this.drawImage(res[3].imagePath, canvasWidth - qrCodeWidth, avatarHeight + res[0].imageHeight, qrCodeWidth, qrCodeHeight) /*QRCode*/
       canvas.draw();
+
       setTimeout(function() {
         _this.output()
       }, 60)
