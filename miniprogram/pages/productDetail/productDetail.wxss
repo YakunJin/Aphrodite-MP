@@ -18,10 +18,12 @@ page {
 .product-image{
   width: 100%;
   height: 90%;
+  /* border-bottom: 1rpx solid lightgrey; */
 }
 
 .product-desc{
   font-size: 35rpx;
+  margin-top: 10rpx;
 }
 
 .action-bar {

@@ -92,7 +92,7 @@ Page({
    */
   onShareAppMessage: function() {
     return {
-      title: '来看看我分享给你的款式',
+      title: '来看看我分享给你照片',
       path: `/pages/productDetail/productDetail?productId=${this.data.productInfo._id}`,
       imageUrl: this.data.productInfo.image_id
     }
