@@ -1,4 +1,5 @@
 // components/BidderProductItem/BidderProductItem.js
+const app = getApp()
 Component({
   /**
    * Component properties
@@ -22,7 +23,7 @@ Component({
    * Component initial data
    */
   data: {
-
+    loadedImage: {},
   },
 
   /**
@@ -30,7 +31,24 @@ Component({
    */
   methods: {
     previewImg: function() {
-      this.triggerEvent('tapProductEvent', {productId: this.data.productId})
+      this.triggerEvent('tapProductEvent', {
+        productId: this.data.productId
+      })
+    },
+
+    imageLoad: function(e) {
+      console.log(e.detail)
+      const _width = e.detail.width
+      const _height = e.detail.height
+      const ratio = _width / _height
+      const viewWidth = app.globalData.systemInfo.windowWidth * 1.4
+      const viewHeight = viewWidth / ratio;
+      this.setData({
+        image: {
+          width: viewWidth,
+          height: viewHeight
+        }
+      })
     }
   }
 })

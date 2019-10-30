@@ -10,6 +10,7 @@ Page({
    */
   data: {
     productInfo: {},
+    image: {}
   },
 
   /**
@@ -183,11 +184,7 @@ Page({
 
   drawImage: function(path, x, y, width, height) {
     const _this = this
-    // canvas.drawImage(path, 0, 0, clientWidth, clientWidth);
     canvas.drawImage(path, 0, 0, width, height, x, y, width, height)
-    // setTimeout(function(){
-    //   _this.output()
-    // }, 60)
   },
 
   output: function() {
@@ -213,5 +210,19 @@ Page({
         // wx.hideToast()
       }
     }, this)
+  },
+
+  imageLoad: function (e) {
+    const _width = e.detail.width
+    const _height = e.detail.height
+    const ratio = _width / _height
+    const viewWidth = app.globalData.systemInfo.windowWidth * 1.5
+    const viewHeight = viewWidth / ratio;
+    this.setData({
+      image: {
+        width: viewWidth,
+        height: viewHeight
+      }
+    })
   }
 })

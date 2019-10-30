@@ -75,6 +75,7 @@ Page({
       sourceType: ['album', 'camera'],
       success: res => {
         const filePath = res.tempFilePaths[0]
+        console.log('image info', res)
         this.setData({
           newPhotoUrl: filePath,
         })
@@ -99,8 +100,27 @@ Page({
       filePath,
       success: res => {
         console.log('[上传文件] 成功：', res)
-        this.savePhotoInfo(app.globalData.openid, res.fileID, filePath, this.data.productDesc, this.data.price)
-        wx.hideLoading();
+        wx.getImageInfo({
+          src: res.fileID,
+          success: getImageInfoRes => {
+            console.log(`[uploadProduct] get image info ${JSON.stringify(getImageInfoRes)} success`)
+            this.savePhotoInfo(
+              app.globalData.openid,
+              res.fileID,
+              filePath,
+              this.data.productDesc,
+              this.data.price,
+              getImageInfoRes.width,
+              getImageInfoRes.height
+            )
+            wx.hideLoading();
+          },
+          fail: error => {
+            reject({
+              errMsg: `[uploadProduct] get image info ${imageUrl} failed`
+            })
+          }
+        })
       },
       fail: e => {
         console.error('[上传文件] 失败：', e)
@@ -113,7 +133,7 @@ Page({
     })
   },
 
-  savePhotoInfo: function(openId, photoId, photoPath, productDesc, price) {
+  savePhotoInfo: function(openId, photoId, photoPath, productDesc, price, imageWidth, imageHeight) {
     console.log("openId ", openId);
     console.log("photoId ", photoId);
     console.log("photoPath ", photoPath);
@@ -126,7 +146,9 @@ Page({
         imageId: photoId,
         imagePath: photoPath,
         productDesc: productDesc || '',
-        price: price || 0
+        price: price || 0,
+        imageWidth: imageWidth || wx.getSystemInfoSync().windowWidth * 0.8,
+        imageHeight: imageHeight || wx.getSystemInfoSync().windowHeight * 0.8
       },
       success: res => {
         console.log('Save photo info for user ', openId)

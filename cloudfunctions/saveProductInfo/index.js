@@ -14,6 +14,8 @@ exports.main = async (event, context) => {
         image_path: event.imagePath,
         desc: event.productDesc || '',
         price: event.price || 0,
+        imageWidth: event.imageWidth,
+        imageHeight: event.imageHeight,
         created_at: db.serverDate()
       }
     })

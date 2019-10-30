@@ -13,17 +13,12 @@ page {
   display: flex;
   flex-direction: column;
   width: 90%;
-}
-
-.product-image{
-  width: 100%;
-  height: 90%;
-  /* border-bottom: 1rpx solid lightgrey; */
+  align-items: center;
 }
 
 .product-desc{
   font-size: 35rpx;
-  margin-top: 10rpx;
+  margin-top: 8%;
 }
 
 .action-bar {
