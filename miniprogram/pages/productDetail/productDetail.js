@@ -216,7 +216,7 @@ Page({
     const _width = e.detail.width
     const _height = e.detail.height
     const ratio = _width / _height
-    const viewWidth = app.globalData.systemInfo.windowWidth * 1.5
+    const viewWidth = app.globalData.systemInfo.windowWidth * 1.6
     const viewHeight = viewWidth / ratio;
     this.setData({
       image: {
