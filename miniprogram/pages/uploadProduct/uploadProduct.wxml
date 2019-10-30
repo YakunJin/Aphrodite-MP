@@ -5,7 +5,7 @@
     <image class="image-container" src="{{newPhotoUrl}}" mode="aspectFit" bindtap="onSelectPhoto"></image>
   </view>
     <view class="product-info-section">
-      <input class="input-field" type="text" confirm-type="done" bindinput="onDescInput" placeholder="描述信息"></input>
+      <textarea class="input-field" bindinput="onDescInput" placeholder="描述信息"></textarea>
     </view>
   </view>
   <my-button class="upload-product-button" icon-url="../../icons/accept256.png" bind:onClick="doUpload"></my-button>
