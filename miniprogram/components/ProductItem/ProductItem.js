@@ -17,6 +17,9 @@ Component({
     price: {
       type: Number
     },
+    viewWidth: {
+      type: Number
+    }
   },
 
   /**
@@ -37,11 +40,10 @@ Component({
     },
 
     imageLoad: function(e) {
-      console.log(e.detail)
       const _width = e.detail.width
       const _height = e.detail.height
       const ratio = _width / _height
-      const viewWidth = app.globalData.systemInfo.windowWidth * 1.7
+      const viewWidth = this.data.viewWidth
       const viewHeight = viewWidth / ratio;
       this.setData({
         image: {

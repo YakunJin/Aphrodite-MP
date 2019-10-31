@@ -8,7 +8,8 @@ Page({
     logged: false,
     takeSession: false,
     requestResult: '',
-    products: []
+    products: [],
+    viewWidth: app.globalData.systemInfo.windowWidth * 0.85
   },
 
   onLoad: function() {
