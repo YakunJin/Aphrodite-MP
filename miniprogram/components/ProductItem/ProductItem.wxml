@@ -1,6 +1,6 @@
 <!--components/BidderProductItem/BidderProductItem.wxml-->
 <view class="bidder-product-container" wx:if="{{!!imageUrl}}">
-  <image src="{{imageUrl}}" mode="scaleToFill" bindtap="previewImg" bindload="imageLoad" style="width:{{ image.width }}rpx; height:{{ image.height }}rpx;background-color: whitesmoke; margin-top: 20rpx; margin-left: 5%"></image>
+  <image src="{{imageUrl}}" mode="scaleToFill" bindtap="previewImg" bindload="imageLoad" style="width:{{ image.width }}rpx; height:{{ image.height }}rpx;background-color: whitesmoke; margin-top: 20rpx;"></image>
   <!-- <image src="{{ item }}" bindload="imageLoad" data-index="{{ index }}" 
 style="width:{{ images[index].width }}rpx; height:{{ images[index].height }}rpx;background-color: whitesmoke; margin-top: 20rpx; margin-left: 5%"></image> -->
   <!-- <view class="middle-section">
