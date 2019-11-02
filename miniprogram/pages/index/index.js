@@ -37,9 +37,6 @@ Page({
 
   onPullDownRefresh: function(){
     wx.showNavigationBarLoading() //在标题栏中显示加载
-    wx.showLoading({
-      title: '刷新中',
-    })
     this.loadProducts(app.globalData.openid)
   },
 
