@@ -152,7 +152,7 @@ Page({
       },
       success: res => {
         console.log('Save photo info for user ', openId)
-        wx.redirectTo({
+        wx.switchTab({
           url: '../index/index',
         })
       },

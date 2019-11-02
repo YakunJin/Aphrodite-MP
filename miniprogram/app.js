@@ -16,7 +16,8 @@ App({
     }
 
     this.globalData = {
-      systemInfo: wx.getSystemInfoSync()
+      systemInfo: wx.getSystemInfoSync(),
+      userInfo: {}
     }
   }
 })

@@ -35,6 +35,10 @@ Page({
     this.onGetOpenid();
   },
 
+  onPullDownRefresh: function(){
+    wx.startPullDownRefresh()
+  },
+
   onGetUserInfo: function(e) {
     console.log(`on get user info ${e}`)
     if (!this.data.logged && e.detail.userInfo) {
