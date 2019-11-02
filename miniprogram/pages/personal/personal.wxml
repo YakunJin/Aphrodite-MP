@@ -5,7 +5,7 @@
   </view>
   <view wx:if="{{isUserInfoAquired}}">
     <view class="userinfo">
-      <image src="{{personalInfo.avatarUrl}}"></image>
+      <image class="userinfo-avatar" src="{{personalInfo.avatarUrl}}"></image>
       <label>{{personalInfo.nickName}}</label>
     </view>
   </view>
