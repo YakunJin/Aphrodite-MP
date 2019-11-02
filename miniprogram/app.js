@@ -19,5 +19,6 @@ App({
       systemInfo: wx.getSystemInfoSync(),
       userInfo: {}
     }
+    this.logger = require('./utils/logger.js')
   }
 })
