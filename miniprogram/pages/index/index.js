@@ -36,7 +36,11 @@ Page({
   },
 
   onPullDownRefresh: function(){
-    wx.startPullDownRefresh()
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    wx.showLoading({
+      title: '刷新中',
+    })
+    this.loadProducts(app.globalData.openid)
   },
 
   onGetUserInfo: function(e) {
@@ -62,7 +66,7 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        this.loadProducts()
+        this.loadProducts(app.globalData.openid)
       },
       fail: err => {
         wx.showToast({
@@ -86,6 +90,8 @@ Page({
           products: res.result.data || []
         })
         wx.hideLoading();
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
         console.log(res.result.data)
       },
       fail: error => {
@@ -94,6 +100,8 @@ Page({
           title: '加载图片失败',
         });
         wx.hideLoading();
+        wx.hideNavigationBarLoading()
+        wx.stopPullDownRefresh()
         console.error
       }
     })

@@ -1,4 +1,5 @@
 {
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "login": "../../components/login/login",
     "product-item": "../../components/ProductItem/ProductItem",

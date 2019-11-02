@@ -13,7 +13,6 @@
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
-  "enablePullDownRefresh": true,
   "tabBar": {
     "color": "#6f6f6f",
     "selectedColor": "#9e5fb8",
