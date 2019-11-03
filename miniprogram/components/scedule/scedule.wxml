@@ -1,0 +1,5 @@
+<!--components/scedule/scedule.wxml-->
+<view class="modals scedule-container" hidden="{{hideModal}}">
+    <view class="modals-cancel" bindtap="hideModal" wx:if="{{!hideModal}}"></view>
+    <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}"></view>
+</view>

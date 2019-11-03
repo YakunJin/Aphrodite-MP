@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/uploadProduct/uploadProduct",
     "pages/productDetail/productDetail",
-    "pages/personal/personal"
+    "pages/personal/personal",
+    "components/scedule/scedule"
   ],
   "window": {
     "backgroundColor": "#f1f1ef",

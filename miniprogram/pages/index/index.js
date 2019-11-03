@@ -9,7 +9,8 @@ Page({
     takeSession: false,
     requestResult: '',
     products: [],
-    viewWidth: app.globalData.systemInfo.windowWidth * 0.85
+    viewWidth: app.globalData.systemInfo.windowWidth * 0.85,
+    showScedule: false
   },
 
   onLoad: function() {
@@ -37,7 +38,7 @@ Page({
     this.onGetOpenid();
   },
 
-  onPullDownRefresh: function(){
+  onPullDownRefresh: function() {
     wx.showNavigationBarLoading() //在标题栏中显示加载
     this.loadProducts(app.globalData.openid)
   },
@@ -105,10 +106,29 @@ Page({
       }
     })
   },
-  onTapProduct: function(e){
-    console.log('onTapProduct ',e)
+  onTapProduct: function(e) {
+    console.log('onTapProduct ', e)
     wx.navigateTo({
       url: `../productDetail/productDetail?productId=${e.detail.productId}`
     })
   },
+  onClickScedule: function(e) {
+    app.logger.info(`on click scedule ${e}`)
+    if (!this.data.logged && e.detail.userInfo && !this.data.userInfo) {
+      app.globalData.userInfo = e.detail.userInfo
+      this.setData({
+        logged: true,
+        avatarUrl: e.detail.userInfo.avatarUrl,
+        userInfo: e.detail.userInfo
+      })
+    }
+    this.setData({
+      showScedule: !this.data.showScedule
+    })
+  },
+  onCloseDialog: function(e){
+    this.setData({
+      showScedule: !this.data.showScedule
+    })
+  }
 })

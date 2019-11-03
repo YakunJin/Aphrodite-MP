@@ -6,5 +6,9 @@
       </product-item>
     </view>
   </scroll-view>
-  <my-button class="login-button" need-get-user-info='true' icon-url="../../icons/add_new256.png" bind:onClick="onGetUserInfo"></my-button>
+  <view class="action-container">
+    <my-button class="login-button" need-get-user-info='true' icon-url="../../icons/add_new256.png" bind:onClick="onGetUserInfo"></my-button>
+    <my-button class="scedule-button" need-get-user-info='true' icon-url="../../icons/scedule_add256.png" bind:onClick="onClickScedule"></my-button>
+  </view>
+  <scedule class="scedule-dialog" wx:if="{{showScedule}}" bind:tapBackGroundEvent="onCloseDialog"></scedule>
 </view>
