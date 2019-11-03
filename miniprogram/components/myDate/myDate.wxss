@@ -4,6 +4,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
 }
 
 .date-section {
@@ -35,4 +36,13 @@
 
 .date-text{
   text-align: center;
+}
+
+.scedule-hour-section {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

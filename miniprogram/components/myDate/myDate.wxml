@@ -8,4 +8,7 @@
       </view>
     </view>
   </scroll-view>
+  <view class="scedule-hour-section">
+    <view class="hour-item" wx:for="{{sceduleHours}}" wx:key="{{item}}">{{item}}</view>
+  </view>
 </view>
