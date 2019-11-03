@@ -1,0 +1,11 @@
+<!--components/myDate/myDate.wxml-->
+<view class="my-date-container">
+  <scroll-view class="date-section" scroll-x>
+    <view class="date-item-container" wx:for="{{dateList}}" wx:key="{{item.newdates + item.year}}">
+      <view class="date-item">
+        <label class="date-text">{{item.week}}</label>
+        <label class="date-text">{{item.dates}}</label>
+      </view>
+    </view>
+  </scroll-view>
+</view>
