@@ -2,13 +2,13 @@
 <view class="my-date-container">
   <scroll-view class="date-section" scroll-x>
     <view class="date-item-container" wx:for="{{dateList}}" wx:key="{{item.newdates + item.year}}">
-      <view class="date-item">
+      <view data-id="{{item.newdates}}" class="date-item {{selectedDate === item.newdates ? 'active': ''}}" bindtap="onSelectDate">
         <label class="date-text">{{item.week}}</label>
         <label class="date-text">{{item.dates}}</label>
       </view>
     </view>
   </scroll-view>
   <view class="scedule-hour-section">
-    <view class="hour-item" wx:for="{{sceduleHours}}" wx:key="{{item}}">{{item}}</view>
+    <view data-id="{{item}}" class="hour-item {{selectedTime === item ? 'active': ''}}" bindtap="onSelectTime" wx:for="{{sceduleHours}}" wx:key="{{item}}">{{item}}</view>
   </view>
 </view>

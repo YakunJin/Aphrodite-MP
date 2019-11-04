@@ -84,9 +84,21 @@ Component({
       let sceduleHours = []
       const workingHours = hours.filter(hour => hour > 8 && hour < 21)
       for (let i = 0; i < workingHours.length-1; i++) {
-        sceduleHours.push(`${workingHours[i]}:00 - ${workingHours[i+1]}:00`)
+        sceduleHours.push(` ${workingHours[i]}:00-${workingHours[i+1]}:00 `)
       }
       return sceduleHours
+    },
+
+    onSelectTime: function(e) {
+      this.setData({
+        selectedTime: e.currentTarget.dataset.id
+      })
+    },
+
+    onSelectDate: function(e) {
+      this.setData({
+        selectedDate: e.currentTarget.dataset.id
+      })
     }
   }
 })

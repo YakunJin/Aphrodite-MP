@@ -29,7 +29,7 @@
   left: 0;
   right: 0;
   padding: 30rpx;
-  height: 300rpx;
+  /* height: 450rpx; */
   background-color: #fff;
 }
 /*动画前初始位置*/
