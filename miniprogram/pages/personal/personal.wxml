@@ -7,6 +7,10 @@
     <view class="userinfo">
       <image class="userinfo-avatar" src="{{personalInfo.avatarUrl}}"></image>
       <label>{{personalInfo.nickName}}</label>
+      <my-button class="bind-phone-button" need-get-user-info='true' icon-url="../../icons/phone256.png" bind:onClick="onBindPhone"></my-button>
+    </view>
+    <view class="join-application">
+      <button>成为商铺</button>
     </view>
   </view>
 </view>

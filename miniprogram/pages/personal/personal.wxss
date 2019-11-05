@@ -21,3 +21,21 @@
   background-size: cover;
   background-color: white;
 }
+
+.join-application {
+  margin-top: 40rpx;
+  height: 80rpx;
+  width: 100%;
+  background-color: #dad7da;
+  border: 1rpx solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+  border-right: none;
+  font-size: 30rpx;
+}
+
+.bind-phone-button {
+  width: 60rpx;
+  height: 60rpx;
+  position: relative;
+  right: -65%;
+}
