@@ -1,0 +1,55 @@
+/* components/phoneBinder.wxss */
+.main-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-binder-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1001;
+  background-color: white;
+  position: fixed;
+  top: 25%;
+  height: 30%;
+}
+
+.modal-background {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.input-phone-section {
+  display: flex;
+  justify-content: space-around;
+  height: 25%;
+  margin-left: 85rpx;
+  margin-right: 85rpx;
+}
+
+.phone-input-field {
+  margin-left: 35rpx;
+  border: 1rpx solid grey;
+  text-align: center;
+}
+
+.title {
+  font-size: 40rpx;
+  margin-top: 20rpx;
+}
+
+.confirm-button {
+  width: 236rpx;
+  background-color: #3ecfb0;
+  color: white;
+  margin-bottom: 35rpx;
+}

@@ -1,0 +1,12 @@
+<!--components/phoneBinder.wxml-->
+<view class="main-container">
+  <view class="phone-binder-container">
+    <view class="title">手机绑定</view>
+    <view class="input-phone-section">
+      <!-- <label></label> -->
+      <input class="phone-input-field" placeholder="手机号" maxlength="11"></input>
+    </view>
+    <button class="confirm-button" bindtap="onConfirm">{{isPhoneBinded ? '重新绑定' : '绑定手机'}}</button>
+  </view>
+  <view class="modal-background" bindtap="onCloseDialog"></view>
+</view>

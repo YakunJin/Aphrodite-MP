@@ -7,7 +7,8 @@ Page({
    */
   data: {
     isUserInfoAquired: false,
-    personalInfo: {}
+    personalInfo: {},
+    showPhoneBinderDialog: false
   },
 
   /**
@@ -72,5 +73,17 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+
+  onBindPhone: function() {
+    this.setData({
+      showPhoneBinderDialog: true
+    })
+  },
+
+  onPhoneBinderDialog: function() {
+    this.setData({
+      showPhoneBinderDialog: false
+    })
   }
 })

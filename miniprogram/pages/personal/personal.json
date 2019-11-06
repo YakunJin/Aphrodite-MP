@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "my-button": "../../components/myButton/myButton"
+    "my-button": "../../components/myButton/myButton",
+    "phone-binder": "../../components/phoneBinder/phoneBinder"
   }
 }

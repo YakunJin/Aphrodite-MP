@@ -13,4 +13,5 @@
       <button>成为商铺</button>
     </view>
   </view>
+  <phone-binder wx:if="{{showPhoneBinderDialog}}" bind:closeDialogEvent="onPhoneBinderDialog"></phone-binder>
 </view>
