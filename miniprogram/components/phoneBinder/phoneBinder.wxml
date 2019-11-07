@@ -4,9 +4,9 @@
     <view class="title">手机绑定</view>
     <view class="input-phone-section">
       <!-- <label></label> -->
-      <input class="phone-input-field" placeholder="手机号" maxlength="11"></input>
+      <input class="phone-input-field" placeholder="手机号" maxlength="11" value="{{clientInfo? cilentInfo.phone : '' }}" bindinput="onInputPhoneNumber"></input>
     </view>
-    <button class="confirm-button" bindtap="onConfirm">{{isPhoneBinded ? '重新绑定' : '绑定手机'}}</button>
+    <button class="confirm-button" bindtap="onConfirm">{{clientInfo ? '重新绑定' : '绑定手机'}}</button>
   </view>
   <view class="modal-background" bindtap="onCloseDialog"></view>
 </view>

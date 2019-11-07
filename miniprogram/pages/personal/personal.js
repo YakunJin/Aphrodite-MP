@@ -8,13 +8,17 @@ Page({
   data: {
     isUserInfoAquired: false,
     personalInfo: {},
-    showPhoneBinderDialog: false
+    showPhoneBinderDialog: false,
+    clientInfo: null
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     this.setData({
       isUserInfoAquired: !!app.globalData.userInfo
     })
@@ -24,6 +28,28 @@ Page({
         personalInfo: app.globalData.userInfo
       })
     }
+
+    wx.cloud.callFunction({
+      name: 'getClientInfo',
+      data: {
+        openId: app.globalData.openid
+      },
+      success: res => {
+        this.setData({
+          clientInfo: res.result.data[0]
+        })
+        wx.hideLoading();
+        app.logger.info(`[phoneBinder] 获取客户信息成功 ${JSON.stringify(res.result.data)}`)
+      },
+      fail: error => {
+        wx.showToast({
+          icon: 'none',
+          title: '加载失败',
+        });
+        wx.hideLoading();
+        app.logger.error(`[phoneBinder] 获取客户信息失败 ${JSON.stringify(error)}`)
+      }
+    })
   },
 
   /**

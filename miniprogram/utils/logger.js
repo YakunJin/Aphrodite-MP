@@ -13,6 +13,8 @@ module.exports = {
   error() {
     if (!log) return
     log.error.apply(log, arguments)
+    // console.log(`${JSON.stringify(log)}, ${JSON.stringify(arguments)}`)
+    console.log(log, arguments)
   },
   setFilterMsg(msg) { // 从基础库2.7.3开始支持
     if (!log || !log.setFilterMsg) return
