@@ -4,7 +4,8 @@
     "pages/uploadProduct/uploadProduct",
     "pages/productDetail/productDetail",
     "pages/personal/personal",
-    "components/scedule/scedule"
+    "components/scedule/scedule",
+    "pages/clientApplication/clientApplication"
   ],
   "window": {
     "backgroundColor": "#f1f1ef",

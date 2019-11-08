@@ -16,6 +16,19 @@ Page({
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function() {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function() {
     this.setData({
       isUserInfoAquired: !!app.globalData.userInfo
     })
@@ -30,20 +43,6 @@ Page({
       this.getClientInfo();
     }
     app.globalData.clientInfo = this.data.clientInfo
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function() {
-
   },
 
   /**
@@ -97,6 +96,12 @@ Page({
     
     this.setData({
       showPhoneBinderDialog: false,
+    })
+  },
+
+  onApplyClient: function() {
+    wx.navigateTo({
+      url: '../clientApplication/clientApplication',
     })
   },
 
