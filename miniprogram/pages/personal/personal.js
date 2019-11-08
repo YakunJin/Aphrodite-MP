@@ -115,7 +115,7 @@ Page({
           clientInfo: res.result.data[0] || null
         })
         wx.hideLoading();
-        app.logger.info(`[phoneBinder] 调用客户信息接口成功 ${this.data.clientInfo}`)
+        app.logger.info(`[phoneBinder] 调用客户信息接口成功 ${JSON.stringify(this.data.clientInfo)}`)
       },
       fail: error => {
         wx.showToast({
