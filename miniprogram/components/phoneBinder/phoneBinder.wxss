@@ -37,7 +37,6 @@
 }
 
 .phone-input-field {
-  margin-left: 35rpx;
   border: 1rpx solid grey;
   text-align: center;
 }
@@ -49,7 +48,7 @@
 
 .confirm-button {
   width: 236rpx;
-  background-color: #3ecfb0;
+  background-color: #9e5fb8;
   color: white;
   margin-bottom: 35rpx;
 }
