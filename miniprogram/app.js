@@ -17,7 +17,8 @@ App({
 
     this.globalData = {
       systemInfo: wx.getSystemInfoSync(),
-      userInfo: {}
+      userInfo: null,
+      clientInfo: null
     }
     this.logger = require('./utils/logger.js')
   }

@@ -9,16 +9,13 @@ Page({
     isUserInfoAquired: false,
     personalInfo: {},
     showPhoneBinderDialog: false,
-    clientInfo: null
+    clientInfo: {}
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function(options) {
-    wx.showLoading({
-      title: '加载中',
-    })
     this.setData({
       isUserInfoAquired: !!app.globalData.userInfo
     })
@@ -29,27 +26,10 @@ Page({
       })
     }
 
-    wx.cloud.callFunction({
-      name: 'getClientInfo',
-      data: {
-        openId: app.globalData.openid
-      },
-      success: res => {
-        this.setData({
-          clientInfo: res.result.data[0]
-        })
-        wx.hideLoading();
-        app.logger.info(`[phoneBinder] 获取客户信息成功 ${JSON.stringify(res.result.data)}`)
-      },
-      fail: error => {
-        wx.showToast({
-          icon: 'none',
-          title: '加载失败',
-        });
-        wx.hideLoading();
-        app.logger.error(`[phoneBinder] 获取客户信息失败 ${JSON.stringify(error)}`)
-      }
-    })
+    if (!app.globalData.clientInfo) {
+      this.getClientInfo();
+    }
+    app.globalData.clientInfo = this.data.clientInfo
   },
 
   /**
@@ -107,9 +87,44 @@ Page({
     })
   },
 
-  onPhoneBinderDialog: function() {
+  onClosePhoneBinderDialog: function(e) {
+    if (e.detail) {
+      app.globalData.clientInfo = e
+      this.setData({
+        clientInfo: e.detail
+      })
+    }
+    
     this.setData({
-      showPhoneBinderDialog: false
+      showPhoneBinderDialog: false,
+    })
+  },
+
+  getClientInfo: function() {
+    wx.showLoading({
+      title: '加载中',
+    })
+
+    wx.cloud.callFunction({
+      name: 'getClientInfo',
+      data: {
+        openId: app.globalData.openid
+      },
+      success: res => {
+        this.setData({
+          clientInfo: res.result.data[0] || null
+        })
+        wx.hideLoading();
+        app.logger.info(`[phoneBinder] 调用客户信息接口成功 ${this.data.clientInfo}`)
+      },
+      fail: error => {
+        wx.showToast({
+          icon: 'none',
+          title: '加载失败',
+        });
+        wx.hideLoading();
+        app.logger.error(`[phoneBinder] 获取客户信息失败 ${JSON.stringify(error)}`)
+      }
     })
   }
 })
