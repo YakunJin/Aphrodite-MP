@@ -1,5 +1,8 @@
 // miniprogram/pages/personal/personal.js
 const app = getApp()
+const {
+  clientApplyStatus
+} = require('../../enums/enum.js')
 Page({
 
   /**
@@ -15,8 +18,7 @@ Page({
   /**
    * Lifecycle function--Called when page load
    */
-  onLoad: function(options) {
-  },
+  onLoad: function(options) {},
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -97,15 +99,52 @@ Page({
         clientInfo: e.detail
       })
     }
-    
+
     this.setData({
       showPhoneBinderDialog: false,
     })
   },
 
   onApplyClient: function() {
-    wx.navigateTo({
-      url: '../clientApplication/clientApplication',
+    wx.showLoading({
+      title: '加载中',
+    })
+    this.getClientApplication(app.globalData.openid).then((res) => {
+      if (!res) {
+        wx.hideLoading()
+        wx.navigateTo({
+          url: '../clientApplication/clientApplication',
+        })
+      } else {
+        wx.showToast({
+          title: '您已经申请，请耐心等待审核',
+          duration: 2000,
+        })
+      }
+    }).catch(error => {
+      wx.showToast({
+        title: '加载失败，请稍后重试',
+        duration: 2000,
+      })
+    })
+  },
+
+  getClientApplication: function(openId) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getClientApplicationById',
+        data: {
+          openId: app.globalData.openid
+        },
+        success: res => {
+          app.logger.info(`[personal] getClientApplicationById success ${JSON.stringify(res.result.data[0])}`)
+          resolve(res.result.data[0] || null)
+        },
+        fail: error => {
+          reject(error)
+          app.logger.error(`[phoneBinder] getClientApplicationFailed ${JSON.stringify(error)}`)
+        }
+      })
     })
   },
 
