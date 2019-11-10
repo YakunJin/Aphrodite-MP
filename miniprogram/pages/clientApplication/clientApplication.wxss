@@ -1,1 +1,42 @@
 /* miniprogram/pages/clientApplication/clientApplication.wxss */
+
+page {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.user-info-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  justify-content: space-evenly;
+}
+
+.user-avatar {
+  width: 200rpx;
+  height: 200rpx;
+}
+
+.user-nick-name {
+  margin-top: -66rpx;
+}
+
+.phone-input-field {
+  border: 1rpx solid darkgrey;
+  text-align: center;
+}
+
+.confirm-button {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 160rpx;
+}

@@ -8,5 +8,5 @@
       <textarea class="input-field" bindinput="onDescInput" placeholder="描述信息"></textarea>
     </view>
   </view>
-  <my-button class="upload-product-button" icon-url="../../icons/accept256.png" bind:onClick="doUpload"></my-button>
+  <my-button class="upload-product-button" icon-url="../../icons/accept512.png" bind:onClick="doUpload"></my-button>
 </view>

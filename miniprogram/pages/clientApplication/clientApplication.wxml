@@ -1,2 +1,10 @@
 <!--miniprogram/pages/clientApplication/clientApplication.wxml-->
-<text>miniprogram/pages/clientApplication/clientApplication.wxml</text>
+<view class="container">
+  <view class="user-info-section">
+    <open-data class="user-avatar" type="userAvatarUrl"></open-data>
+    <open-data class="user-nick-name" type="userNickName"></open-data>
+    <input class="phone-input-field" placeholder="手机号" maxlength="11" value="{{clientInfo ? clientInfo.phone : '' }}" bindinput="onInputPhoneNumber"></input>
+  </view>
+  <radio checked="{{isPolicyAgreed}}" bindtap="onChangePolicyAgreement">我已同意商铺入驻条款</radio>
+  <my-button disabled="{{!isPolicyAgreed || !inputPhoneNumber}}" class="confirm-button" icon-url="../../icons/accept512.png" disabled-icon-url="../../icons/accept_disabled512.png" bind:onClick="doApplyClient"></my-button>
+</view>;

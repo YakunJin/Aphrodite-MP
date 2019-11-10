@@ -7,7 +7,14 @@ Component({
     iconUrl: {
       type: String
     },
+    disabledIconUrl: {
+      type: String
+    },
     needGetUserInfo: {
+      type: Boolean,
+      default: false,
+    },
+    disabled: {
       type: Boolean,
       default: false,
     }

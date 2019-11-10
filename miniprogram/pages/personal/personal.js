@@ -39,10 +39,14 @@ Page({
       })
     }
 
+    app.logger.info(`[personal] Get client info ${JSON.stringify(app.globalData.clientInfo)}`)
     if (!app.globalData.clientInfo) {
       this.getClientInfo();
+    } else {
+      this.setData({
+        clientInfo: app.globalData.clientInfo
+      })
     }
-    app.globalData.clientInfo = this.data.clientInfo
   },
 
   /**
@@ -119,6 +123,7 @@ Page({
         this.setData({
           clientInfo: res.result.data[0] || null
         })
+        app.globalData.clientInfo = res.result.data[0] || null
         wx.hideLoading();
         app.logger.info(`[phoneBinder] 调用客户信息接口成功 ${JSON.stringify(this.data.clientInfo)}`)
       },
@@ -127,6 +132,7 @@ Page({
           icon: 'none',
           title: '加载失败',
         });
+        app.globalData.clientInfo = null
         wx.hideLoading();
         app.logger.error(`[phoneBinder] 获取客户信息失败 ${JSON.stringify(error)}`)
       }

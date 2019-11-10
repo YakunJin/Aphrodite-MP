@@ -1,4 +1,5 @@
 /* miniprogram/pages/uploadProduct/uploadProduct.wxss */
+
 page {
   background: #f6f6f6;
   display: flex;
@@ -7,7 +8,7 @@ page {
   height: 100%;
 }
 
-.container{
+.container {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -17,15 +18,11 @@ page {
 
 .upload-product-button {
   width: 160rpx;
-  /* background-color: green; */
   height: 160rpx;
   border-radius: 50%;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
 }
 
-.product-info-container{
+.product-info-container {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -34,12 +31,11 @@ page {
   align-items: center;
 }
 
-.product-info-section{
+.product-info-section {
   display: flex;
   justify-content: space-around;
   border: 1rpx solid rgba(0, 0, 0, 0.1);
   text-align: left;
-  /* height: 5%; */
   width: 85%;
   height: 30%;
 }
