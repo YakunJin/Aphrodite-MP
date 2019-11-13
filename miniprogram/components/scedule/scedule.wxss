@@ -37,3 +37,18 @@
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
 }
+
+.scedule-button {
+  width: 140rpx;
+  height: 60rpx;
+  color: black;
+  border: 0;
+  background-color: transparent;
+  line-height: 100%;
+  position: relative;
+  left: 46%;
+}
+
+.scedule-button-hover {
+  color: #9e5fb8;
+}

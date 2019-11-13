@@ -105,6 +105,14 @@ Component({
       this.triggerEvent('bindSelect', myEventDetail);
     },
 
+    onSelectDateChange: function(e) {
+      console.log('onSelectDateChange', e)
+    },
+
+    onSelectHourChange: function(e) {
+      console.log('onSelectHourChange', e)
+    }
+
     // getCurrentMonthDays(year, month) {
     //   return new Date(year, month, 0).getDate()
     // },

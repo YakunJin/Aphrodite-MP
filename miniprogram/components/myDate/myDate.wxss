@@ -28,11 +28,14 @@
   display: flex;
   flex-direction: column;
   justify-items: center;
+  color: black;
 }
 
 .date-item.active {
-  background-color: rgb(138, 184, 221);
+  /* background-color: rgb(138, 184, 221); */
+  color: #9e5fb8;
 }
+
 
 .date-item-split-line{
   height: 100%;
@@ -53,15 +56,17 @@
 }
 
 .hour-item {
-  border: 1rpx solid blue;
+  border: 1rpx solid black;
   border-radius: 15%;
   width: 30%;
   text-align: center;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   line-height: 2;
   margin-bottom: 20rpx;
+  color: black;
 }
 
 .hour-item.active {
-  background-color: #9e5fb8;
+  color: #9e5fb8;
+  border: 1rpx solid #9e5fb8;
 }

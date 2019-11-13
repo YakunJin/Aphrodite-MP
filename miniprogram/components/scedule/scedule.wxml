@@ -2,6 +2,7 @@
 <view class="modals scedule-container" hidden="{{hideModal}}">
   <view class="modals-cancel" bindtap="hideModal" wx:if="{{!hideModal}}"></view>
   <view class="bottom-dialog-body bottom-pos" animation="{{animationData}}">
-    <my-date></my-date>
+    <button class="scedule-button" hover-class="scedule-button-hover" bindtap="onScedule">预约</button>
+    <my-date bind:sceduleHourChangeEvent="onSelectHourChange" bind:sceduleDateChangeEvent="onSelectDateChange"></my-date>
   </view>
 </view>

@@ -93,12 +93,14 @@ Component({
       this.setData({
         selectedTime: e.currentTarget.dataset.id
       })
+      this.triggerEvent('sceduleHourChangeEvent', e.currentTarget.dataset.id)
     },
 
     onSelectDate: function(e) {
       this.setData({
         selectedDate: e.currentTarget.dataset.id
       })
+      this.triggerEvent('sceduleDateChangeEvent', e.currentTarget.dataset.id)
     }
   }
 })
