@@ -39,3 +39,34 @@
   position: relative;
   right: -65%;
 }
+
+.middle-section {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.middle-item {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1rpx solid lightgray; */
+  background-color: white;
+}
+
+.middle-item-image {
+  width: 70rpx;
+  height: 70rpx;
+  margin: 20rpx 20rpx 20rpx 0;
+}
+
+.middle-item-text {
+  font-size: 45rpx;
+}
+
+.middle-item-split-line {
+  height: 100%;
+  border: 0.5rpx solid lightgray;
+}

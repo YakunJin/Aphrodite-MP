@@ -9,6 +9,17 @@
       <label>{{personalInfo.nickName}}</label>
       <my-button class="bind-phone-button" need-get-user-info='true' icon-url="../../icons/phone256.png" bind:onClick="onBindPhone"></my-button>
     </view>
+    <view class="middle-section">
+      <view class="middle-item">
+        <image class="middle-item-image" src='../../icons/favorite512.png' mode='aspectFit'></image>
+        <label class="middle-item-text">我的关注</label>
+      </view>
+      <view class="middle-item-split-line"></view>
+      <view class="middle-item">
+        <image class="middle-item-image" src='../../icons/star512.png' mode='aspectFit'></image>
+        <label class="middle-item-text">我的收藏</label>
+      </view>
+    </view>
     <view wx:if="{{!clientInfo || clientInfo.client_level === 2}}" class="join-application">
       <button bindtap="onApplyClient">成为商铺</button>
     </view>
