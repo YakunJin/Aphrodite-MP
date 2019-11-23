@@ -33,7 +33,7 @@
 
 .date-item.active {
   /* background-color: rgb(138, 184, 221); */
-  color: #9e5fb8;
+  color: #9b54ba;
 }
 
 
@@ -67,6 +67,6 @@
 }
 
 .hour-item.active {
-  color: #9e5fb8;
-  border: 1rpx solid #9e5fb8;
+  color: #9b54ba;
+  border: 1rpx solid #9b54ba;
 }

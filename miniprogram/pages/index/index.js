@@ -5,6 +5,7 @@ Page({
   data: {
     avatarUrl: './user-unlogin.png',
     userInfo: {},
+    clientInfo: null,
     logged: false,
     takeSession: false,
     requestResult: '',
@@ -66,7 +67,25 @@ Page({
       success: res => {
         console.log('[云函数] [login] user openid: ', res.result.openid)
         app.globalData.openid = res.result.openid
-        this.loadProducts(app.globalData.openid)
+        //this.loadProducts(app.globalData.openid)
+
+        Promise.all([
+        this.loadClientInfoPromise(res.result.openid), 
+        this.loadProductsPromise(res.result.openid)])
+        .then((resList) => {
+          wx.hideLoading();
+          this.setData({
+            clientInfo: resList[0]
+          })
+          app.globalData.clientInfo = resList[0]
+        }).catch(error => {
+          app.logger.error(`[index] Get record failed: ${error}`)
+          wx.hideLoading();
+          wx.showToast({
+            icon: 'none',
+            title: '加载数据失败',
+          });
+        })
       },
       fail: err => {
         wx.showToast({
@@ -79,31 +98,48 @@ Page({
     })
   },
 
-  loadProducts: function(openId) {
-    wx.cloud.callFunction({
-      name: 'getProductsInfo',
-      data: {
-        openId: openId
-      },
-      success: res => {
-        this.setData({
-          products: res.result.data || []
-        })
-        wx.hideLoading();
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-        console.log(res.result.data)
-      },
-      fail: error => {
-        wx.showToast({
-          icon: 'none',
-          title: '加载图片失败',
-        });
-        wx.hideLoading();
-        wx.hideNavigationBarLoading()
-        wx.stopPullDownRefresh()
-        console.error
-      }
+  loadClientInfoPromise: function(openId) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getClientInfo',
+        data: {
+          openId: openId
+        },
+        success: res => {
+          app.logger.info(`[index] Get ClientInfo success ${JSON.stringify(res.result.data)}`)
+          resolve(res.result.data[0])
+        },
+        fail: error => {
+          app.logger.info(`[index] Get ClientInfo failed ${JSON.stringify(error)}`)
+          reject(error)
+        }
+      })
+    })
+  },
+
+  loadProductsPromise: function(openId) {
+    return new Promise((resolve, reject) => {
+      wx.cloud.callFunction({
+        name: 'getProductsInfo',
+        data: {
+          openId: openId
+        },
+        success: res => {
+          this.setData({
+            products: res.result.data || []
+          })
+          // wx.hideLoading();
+          wx.hideNavigationBarLoading()
+          wx.stopPullDownRefresh()
+          resolve(res.result.data)
+        },
+        fail: error => {
+          // wx.hideLoading();
+          wx.hideNavigationBarLoading()
+          wx.stopPullDownRefresh()
+          reject(error)
+        }
+      })
     })
   },
   onTapProduct: function(e) {
@@ -126,7 +162,7 @@ Page({
       showScedule: !this.data.showScedule
     })
   },
-  onCloseDialog: function(e){
+  onCloseDialog: function(e) {
     this.setData({
       showScedule: !this.data.showScedule
     })

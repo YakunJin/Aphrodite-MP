@@ -7,7 +7,7 @@
     </view>
   </scroll-view>
   <view class="action-container">
-    <my-button class="login-button" need-get-user-info='true' icon-url="../../icons/add_new512.png" bind:onClick="onGetUserInfo"></my-button>
+    <my-button class="login-button" need-get-user-info='true' icon-url="../../icons/add_new512.png" bind:onClick="onGetUserInfo" wx:if='{{!!clientInfo && clientInfo.client_level < 2}}'></my-button>
     <my-button class="scedule-button" need-get-user-info='true' icon-url="../../icons/scedule_add256.png" bind:onClick="onClickScedule"></my-button>
   </view>
   <scedule class="scedule-dialog" wx:if="{{showScedule}}" bind:tapBackGroundEvent="onCloseDialog"></scedule>
