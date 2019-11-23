@@ -14,6 +14,7 @@ function dateLater(dates, later) {
   dateObj.month = ((date.getMonth() + 1) < 10 ? ("0" + (date.getMonth() + 1)) : date.getMonth() + 1);
   dateObj.day = (date.getDate() < 10 ? ("0" + date.getDate()) : date.getDate());
   dateObj.week = show_day[day];
+  dateObj.longDateStr = `${dateObj.year}-${dateObj.newdates}`
   return dateObj;
 }
 

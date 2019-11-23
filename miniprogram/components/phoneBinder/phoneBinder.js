@@ -34,12 +34,15 @@ Component({
       this.triggerEvent('closeDialogEvent', null)
     },
     onConfirm: function() {
-      if(!this.data.clientInfo)
-      {
-        this.saveClientInfo(app.globalData.openid, this.data.inputPhoneNumber)
-      }
-      else{
-
+      if (!this.data.clientInfo) {
+        this.saveClientInfo({
+          openId: app.globalData.openid,
+          phone: this.data.inputPhoneNumber,
+          name: app.globalData.userInfo.nickName,
+          avatar: app.globalData.userInfo.avatarUrl
+        })
+      } else {
+        //todo update client Info
       }
     },
 
@@ -49,10 +52,20 @@ Component({
       })
     },
 
-    saveClientInfo: function (openId, phone, oper1_id, oper2_id, oper3_id) {
+    saveClientInfo: function({
+      openId,
+      phone,
+      oper1_id,
+      oper2_id,
+      oper3_id,
+      name,
+      avatar
+    }) {
       let newClientInfo = {
         openId: openId,
         phone: phone,
+        name: name,
+        avatarUrl: avatar,
         oper1_id: oper1_id,
         oper2_id: oper2_id,
         oper3_id: oper3_id,

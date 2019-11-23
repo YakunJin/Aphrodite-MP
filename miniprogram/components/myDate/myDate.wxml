@@ -1,8 +1,8 @@
 <!--components/myDate/myDate.wxml-->
 <view class="my-date-container">
   <scroll-view class="date-section" scroll-x>
-    <view class="date-item-container" wx:for="{{dateList}}" wx:key="{{item.newdates + item.year}}">
-      <view data-id="{{item.newdates}}" class="date-item {{selectedDate === item.newdates ? 'active': ''}}" bindtap="onSelectDate">
+    <view class="date-item-container" wx:for="{{dateList}}" wx:key="{{item.longDateStr}}">
+      <view data-id="{{item.longDateStr}}" class="date-item {{selectedDate === item.newdates ? 'active': ''}}" bindtap="onSelectDate">
         <label class="date-text">{{item.week}}</label>
         <label class="date-text">{{item.dates}}</label>
       </view>

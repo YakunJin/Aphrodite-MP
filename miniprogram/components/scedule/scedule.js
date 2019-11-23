@@ -14,6 +14,8 @@ Component({
   data: {
     hideModal: true, //模态框的状态  true-隐藏  false-显示
     animationData: {},
+    reserveDate: '',
+    reserveTime: '',
   },
 
   lifetimes: {
@@ -107,10 +109,16 @@ Component({
 
     onSelectDateChange: function(e) {
       console.log('onSelectDateChange', e)
+      this.setData({
+        reserveDate: e.detail
+      })
     },
 
     onSelectHourChange: function(e) {
       console.log('onSelectHourChange', e)
+      this.setData({
+        reserveTime: e.detail
+      })
     }
 
     // getCurrentMonthDays(year, month) {

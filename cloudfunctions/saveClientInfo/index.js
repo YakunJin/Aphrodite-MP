@@ -16,6 +16,8 @@ exports.main = async (event, context) => {
       data: {
         _id: event.openId,
         phone: event.phone,
+        name: event.name,
+        avatarUrl: event.avatarUrl,
         oper1_id: event.oper1_id,
         oper2_id: event.oper2_id,
         oper3_id: event.oper3_id,
