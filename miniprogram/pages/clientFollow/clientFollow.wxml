@@ -1,2 +1,10 @@
 <!--miniprogram/pages/clientFollow/clientFollow.wxml-->
-<text>miniprogram/pages/clientFollow/clientFollow.wxml</text>
+<view>
+  <weui-searchbar bindselectresult="selectResult" search="{{search}}" placeholder="搜索商铺" throttle="0"></weui-searchbar>
+  <view class="searched-clients-container" wx:if="{{searchedClients.length > 0}}">
+    <view wx:for="{{searchedClients}}" wx:key='{{item._id}}'>
+      <image src="{{item.avatarUrl}}"></image>
+      <label>{{item.name}}</label>
+    </view>
+  </view>
+</view>
