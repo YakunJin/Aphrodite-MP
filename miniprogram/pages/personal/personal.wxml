@@ -10,7 +10,7 @@
       <my-button class="bind-phone-button" need-get-user-info='true' icon-url="../../icons/phone256.png" bind:onClick="onBindPhone"></my-button>
     </view>
     <view class="middle-section">
-      <view class="middle-item">
+      <view class="middle-item" bindtap="onClickFollow">
         <image class="middle-item-image" src='../../icons/favorite512.png' mode='aspectFit'></image>
         <label class="middle-item-text">我的关注</label>
       </view>

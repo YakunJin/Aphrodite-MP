@@ -57,13 +57,13 @@
 }
 
 .middle-item-image {
-  width: 70rpx;
-  height: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
   margin: 20rpx 20rpx 20rpx 0;
 }
 
 .middle-item-text {
-  font-size: 45rpx;
+  font-size: 40rpx;
 }
 
 .middle-item-split-line {

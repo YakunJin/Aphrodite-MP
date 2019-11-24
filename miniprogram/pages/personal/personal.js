@@ -176,5 +176,11 @@ Page({
         app.logger.error(`[phoneBinder] 获取客户信息失败 ${JSON.stringify(error)}`)
       }
     })
+  },
+  
+  onClickFollow: function() {
+    wx.navigateTo({
+      url: '../clientFollow/clientFollow',
+    })
   }
 })

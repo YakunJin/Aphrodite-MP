@@ -5,7 +5,8 @@
     "pages/productDetail/productDetail",
     "pages/personal/personal",
     "components/scedule/scedule",
-    "pages/clientApplication/clientApplication"
+    "pages/clientApplication/clientApplication",
+    "pages/clientFollow/clientFollow"
   ],
   "window": {
     "backgroundColor": "#f1f1ef",
